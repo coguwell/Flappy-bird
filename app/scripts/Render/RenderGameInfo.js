@@ -17,7 +17,7 @@ export default async(Render, event) => {
                 top: 20%;
                 width: 100%;
                 color: white;
-                font-size: 3vw;
+                font-size: ${Render.canvas.width < 650 ? 10 : 3}vw;
                 text-align: center;
                 font-family: 'fbfont2', sans-serif;
                 -webkit-text-stroke: 2px black;

@@ -29,7 +29,10 @@ export default async(Listener, { event, on }) => {
         if (event.key == '3') Listener.gameState.gameStyle = 'dark'
         if (event.key == '4') Listener.gameState.gameStyle = 'default'
     } else {
-        if ((event.type == 'keyup' || keyPressed == 'MouseClick') && Listener.gameState.gameStage == 'game' && !hold && Listener.gameState.playerData.heightPercent < 100) Listener.gameState.playerData.velocityY = Listener.gameState.playerData.jumpForce;
+        if ((event.type == 'keyup' || keyPressed == 'MouseClick') && Listener.gameState.gameStage == 'game' && !hold && Listener.gameState.playerData.heightPercent < 100) {
+            Listener.gameState.playerData.velocityY = Listener.gameState.playerData.jumpForce;
+            Listener.gameState.PlaySong('jump.mp3', { volume: 0.15 })
+        }
 
         if ((event.type == 'keyup' || keyPressed == 'MouseClick') && Listener.gameState.gameStage == 'menu') {
             Listener.gameState.startGame()

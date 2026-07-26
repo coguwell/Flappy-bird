@@ -7,12 +7,12 @@ export class GameClass {
         this.sounds = require('./addSounds.js').default(this)
         this.images = require('./addImages.js').default(this)
 
-        this.gameStyle = 'dark'
+        this.gameStyle = 'default'
 
         this.score = 0
         this.highestScore = 0
 
-        this.obstaclesSpeed = 0.5
+        this.obstaclesSpeed = 800
         this.timeToSpawnObstacle = 2000
         this.lastObstacleSpawnedTime = 0
 

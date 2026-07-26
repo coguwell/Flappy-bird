@@ -9,6 +9,7 @@ export default async (Game) => {
                 playerData.heightPercent >= obstacle.heightPercent-(obstacle.gap/Game.renderState.groundY*100)+(playerData.size/Game.renderState.canvas.width*100)
             )
         ) {
+            Game.PlaySong('bonk.mp3')
             Game.gameStage = 'menu'
             Game.playerData = JSON.parse(JSON.stringify(Game.defaultPlayerData))
             Game.obstacles = []
@@ -16,6 +17,7 @@ export default async (Game) => {
     }
 
     if (playerData.heightPercent <= 0) {
+        Game.PlaySong('bonk.mp3')
         Game.gameStage = 'menu'
         Game.playerData = JSON.parse(JSON.stringify(Game.defaultPlayerData))
         Game.obstacles = []

@@ -28,7 +28,7 @@ export default async function Loading(Game) {
                 newLoad(dir)
             })
             //sound.addEventListener('error', (e) => console.log(e))
-            sound.src = 'sounds/tomb/'+dir//dir.split('/')[0] == 'Sounds' ? `/${dir}` : link
+            sound.src = 'sounds/'+dir//dir.split('/')[0] == 'Sounds' ? `/${dir}` : link
             sound.preload = 'auto'
             Game.sounds[dir] = sound
         } else {

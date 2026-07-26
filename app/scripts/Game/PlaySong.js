@@ -5,7 +5,7 @@ export default (Game, type, command) => {
         song = new Audio()
         song.src = `sounds/tomb/${type}`
     } else song = Game.sounds[type]
-    console.log(command)
+    //console.log(command)
 
     if (!song) return
     

@@ -1,6 +1,6 @@
 export default (Game) => {
     return [
-        //{ dir: 'specialCube.mp3' },
-        //{ dir: 'up+.mp3' },
+        { dir: 'bonk.mp3' },
+        { dir: 'jump.mp3' },
     ]
 }

@@ -41,7 +41,18 @@ export default async(Render, event) => {
                 bottom: 0;
                 margin-left: 5px;
                 color: white;
-                font-size: 14px;
+                font-size: 15px;
+                font-family: 'fbfont2', sans-serif;
+                -webkit-text-stroke: 1px black;
+            }
+
+            #neuralMessage {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                margin-right: 5px;
+                color: white;
+                font-size: 15px;
                 font-family: 'fbfont2', sans-serif;
                 -webkit-text-stroke: 1px black;
             }
@@ -101,6 +112,11 @@ export default async(Render, event) => {
         skinMessage.id = 'skinMessage'
         skinMessage.innerHTML = 'Select the skin using the number keys on the keyboard'
         if (notUpdate) menuElement.appendChild(skinMessage)
+
+        let neuralMessage = document.getElementById('neuralMessage') || document.createElement('h1')
+        neuralMessage.id = 'neuralMessage'
+        neuralMessage.innerHTML = 'Press Q to enable/disable the neural network, status: ' + (Render.gameState.neuralMode ? 'Enabled' : 'Disabled')
+        if (notUpdate) menuElement.appendChild(neuralMessage)
 
         if (notUpdate) screenElements.appendChild(menuElement)
     } catch (err) { console.error(err) }

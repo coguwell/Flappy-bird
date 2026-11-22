@@ -14,6 +14,8 @@ export class RenderClass {
         
         this.RenderScenery = (event) => require('./RenderScenery.js').default(this, event)
         this.RenderPlayer = (event) => require('./RenderPlayer.js').default(this, event)
+        this.RenderNeuralIndividuals = (event) => require('./RenderNeuralIndividuals.js').default(this, event)
+        this.RenderNeuralHud = (event) => require('./RenderNeuralHud.js').default(this, event)
         this.RenderObstacles = (event) => require('./RenderObstacles.js').default(this, event)
         this.RenderMenu = (event) => require('./RenderMenu.js').default(this, event)
         this.RenderGameInfo = (event) => require('./RenderGameInfo.js').default(this, event)
@@ -35,7 +37,9 @@ export class RenderClass {
         if (this.gameState && this.gameState.loading.loadComplete) {            
             this.RenderScenery()
             //this.RenderObstacles()
-            this.RenderPlayer()
+            if (!this.gameState.neuralMode) this.RenderPlayer()
+            if (this.gameState.neuralMode) this.RenderNeuralIndividuals()
+            if (this.gameState.neuralMode) this.RenderNeuralHud()
 
             if (this.gameState.gameStage == 'menu') this.RenderMenu()
             if (this.gameState.gameStage == 'game') this.RenderGameInfo()

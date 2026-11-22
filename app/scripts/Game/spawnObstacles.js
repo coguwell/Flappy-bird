@@ -7,6 +7,7 @@ export default async (Game) => {
 
         Game.obstacles.push({
             type: 'tube',
+            id: +new Date(),
             size: 100,
             heightPercent: randomHeight,
             widthPercent: 100,

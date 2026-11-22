@@ -23,13 +23,14 @@ export default async(Listener, { event, on }) => {
 
     
 
-    if (/[0-9]/g.test(event.key)) {
+    if (/[0-9qQ]/g.test(event.key) && event.type == 'keyup') {
         if (event.key == '1') Listener.gameState.gameStyle = 'nyan'
         if (event.key == '2') Listener.gameState.gameStyle = 'guto'
         if (event.key == '3') Listener.gameState.gameStyle = 'dark'
         if (event.key == '4') Listener.gameState.gameStyle = 'default'
+        if (event.key.toLowerCase() == 'q') Listener.gameState.neuralMode = !Listener.gameState.neuralMode
     } else {
-        if ((event.type == 'keyup' || keyPressed == 'MouseClick') && Listener.gameState.gameStage == 'game' && !hold && Listener.gameState.playerData.heightPercent < 100) {
+        if ((event.type == 'keyup' || keyPressed == 'MouseClick') && Listener.gameState.gameStage == 'game' && !Listener.gameState.neuralMode && !hold && Listener.gameState.playerData.heightPercent < 100) {
             Listener.gameState.playerData.velocityY = Listener.gameState.playerData.jumpForce;
             Listener.gameState.PlaySong('jump.mp3', { volume: 0.15 })
         }

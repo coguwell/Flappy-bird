@@ -7,12 +7,17 @@ export class GameClass {
         this.sounds = require('./addSounds.js').default(this)
         this.images = require('./addImages.js').default(this)
 
-        this.gameStyle = 'default'
+        this.gameStyle = 'nyan'
 
         this.score = 0
         this.highestScore = 0
+        this.generation = 0
+        this.oldGeneration = 0
+        this.inReset = false
 
+        this.obstaclesDefaultSpeed = 800
         this.obstaclesSpeed = 800
+        this.obstaclesSpeedGrowth = 0.5
         this.timeToSpawnObstacle = 2000
         this.lastObstacleSpawnedTime = 0
 
@@ -35,6 +40,10 @@ export class GameClass {
             loadComplete: false
         }
 
+        this.neuralMode = false
+        this.individuals = {}
+        this.numberOfIndividuals = 500
+
         require('./Loading.js').default(this)
 
         this.PlaySong = (...event) => require('./PlaySong.js').default(this, ...event)
@@ -42,6 +51,7 @@ export class GameClass {
         this.moveObstacles = (event) => require('./moveObstacles.js').default(this, event)
         this.spawnObstacles = (event) => require('./spawnObstacles.js').default(this, event)
         this.checkPlayerCollision = (event) => require('./checkPlayerCollision.js').default(this, event)
+        this.neuralSystem = (event) => require('./neuralSystem.js').default(this, event)
         this.GameLoop = require('./GameLoop.js').default(this)
         this.AnimationSystem = require('./AnimationSystem.js').default(this)
         this.startGame = (...event) => require('./startGame.js').default(this, ...event)
